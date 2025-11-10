@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - SMP PGRI Gringsing</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar dengan Logo SVG -->
+    <nav>
+        <div class="nav-container">
+            <!-- Logo SVG Inline -->
+            <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Perisai Biru (Pentagon) -->
+                <polygon points="100,10 170,50 170,150 100,190 30,150 30,50" fill="#87CEEB" stroke="#000" stroke-width="2"/>
+                <!-- Emblem Hijau dengan Obor -->
+                <circle cx="100" cy="90" r="40" fill="#228B22"/>
+                <!-- Obor Merah -->
+                <rect x="95" y="50" width="10" height="40" fill="#FF0000"/>
+                <polygon points="90,50 100,40 110,50" fill="#FF4500"/>
+                <!-- Sayap Kuning -->
+                <path d="M60,90 Q50,70 60,50 Q70,70 60,90" fill="#FFD700"/>
+                <path d="M140,90 Q150,70 140,50 Q130,70 140,90" fill="#FFD700"/>
+                <!-- Gerbang Hijau -->
+                <rect x="85" y="80" width="30" height="20" fill="#32CD32" stroke="#000"/>
+                <!-- Pita Putih -->
+                <path d="M50,120 Q100,140 150,120 L150,130 Q100,150 50,130 Z" fill="#FFF" stroke="#000"/>
+                <text x="100" y="128" text-anchor="middle" fill="#000" font-size="8">Yayasan Pembina Lembaga Pendidikan PGRI</text>
+                <!-- Teks Utama -->
+                <text x="100" y="165" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">SMP PGRI</text>
+                <text x="100" y="180" text-anchor="middle" fill="#000" font-size="10">GRINGSING</text>
+            </svg>
+            <!-- Menu -->
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang</a></li>
+                <li><a href="programs.html">Program</a></li>
+                <li><a href="facilities.html">Fasilitas</a></li>
+                <li><a href="gallery.html">Galeri</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section>
+        <h2 class="hologram">Hubungi Kami</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Alamat Sekolah</h3>
+                <p>Jl. Raya Gringsing No. 123<br>Kendal, Jawa Tengah 513xx<br>Indonesia</p>
+                <img src="images/alamat.jpg" alt="Peta lokasi SMP PGRI Gringsing" style="width:100%; border-radius:5px;">
+            </div>
+            <div class="card">
+                <h3>Kontak Darurat</h3>
+                <p>Telepon: 029-1234567<br>Email: info@smpgringsing.sch.id<br>WhatsApp: +62 812-3456-7890</p>
+            </div>
+            <div class="card">
+                <h3>Jam Operasional</h3>
+                <p>Senin - Jumat: 07:30 - 15:00 WIB<br>Sabtu: 08:00 - 12:00 WIB (kegiatan ekstrakurikuler)</p>
+            </div>
+        </div>
+        <!-- Embed Google Maps -->
+        <div class="card" style="text-align:center; margin: 2rem auto; max-width: 800px;">
+            <h3 class="hologram">Peta Lokasi</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.269689999999!2d110.123456!3d-6.789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNDInMTguNyJTIDEzM8KwMDcnMjguNyJF!5e0!3m2!1sid!2sid!4v1690000000000" width="100%" height="400" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <!-- Formulir Kontak -->
+        <form>
+            <input type="text" placeholder="Nama Lengkap" required>
+            <input type="email" placeholder="Alamat Email" required>
+            <input type="tel" placeholder="Nomor Telepon" required>
+            <textarea placeholder="Pesan Anda (misal: Pendaftaran siswa baru)" rows="5" required></textarea>
+            <button type="submit">Kirim Pesan</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SMP PGRI Gringsing. Alamat: Jl. Raya Gringsing No. 123, Kendal, Jawa Tengah. Tel: 029-1234567</p>
+        <p>Follow kami: <a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

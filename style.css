@@ -1,0 +1,295 @@
+/* Reset dan Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Awan */
+.clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    animation: drift 60s linear infinite;
+}
+
+.cloud:nth-child(1) { width: 200px; height: 60px; top: 20%; animation-delay: 0s; }
+.cloud:nth-child(2) { width: 150px; height: 40px; top: 50%; animation-delay: -20s; }
+.cloud:nth-child(3) { width: 250px; height: 80px; top: 70%; animation-delay: -40s; }
+
+@keyframes drift {
+    0% { transform: translateX(-100%) rotateY(0deg); }
+    100% { transform: translateX(100vw) rotateY(360deg); } /* Tambah 3D rotate */
+}
+
+/* Hujan Rintik */
+.rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.rain-drop {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, #00bfff);
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100vh) rotateX(10deg); opacity: 1; } /* Tambah 3D tilt */
+    100% { transform: translateY(100vh) rotateX(10deg); opacity: 0; }
+}
+
+/* Petir Flash */
+.lightning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    z-index: 10;
+    pointer-events: none;
+    transition: background 0.2s;
+}
+
+.lightning.flash {
+    background: rgba(255, 255, 255, 0.8);
+    animation: flash 0.5s;
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0; transform: scale(1.05); } /* Tambah 3D scale */
+}
+
+/* Efek Hologram Glowing + 3D */
+.hologram {
+    text-shadow: 
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ff00,
+        0 0 80px #00ff00;
+    animation: hologram-glow 2s ease-in-out infinite alternate;
+    position: relative;
+    perspective: 1000px; /* Basis 3D */
+}
+
+.hologram::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
+    animation: scan 3s linear infinite;
+}
+
+@keyframes hologram-glow {
+    from { filter: hue-rotate(0deg); transform: rotateY(5deg); }
+    to { filter: hue-rotate(180deg); transform: rotateY(-5deg); } /* 3D tilt */
+}
+
+@keyframes scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Navbar dengan 3D */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    perspective: 1000px;
+}
+
+nav .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    transform-style: preserve-3d;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    display: block;
+    transform-style: preserve-3d;
+}
+
+nav a:hover {
+    border-color: #00ffff;
+    transform: rotateY(15deg); /* 3D hover */
+}
+
+/* Logo SVG 3D */
+.logo-svg {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 10px #00ffff);
+    animation: logo-float 3s ease-in-out infinite alternate;
+    transform-style: preserve-3d;
+}
+
+@keyframes logo-float {
+    from { transform: rotateY(0deg) translateZ(0px); }
+    to { transform: rotateY(10deg) translateZ(10px); } /* 3D float */
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    class: hologram;
+}
+
+/* Sections Umum dengan 3D */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    class: hologram;
+}
+
+/* Grid untuk Konten 3D */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    transition: all 0.3s;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: translateY(-10px) rotateY(10deg) translateZ(20px); /* Efek 3D hover */
+    box-shadow: 0 0 20px #00ffff;
+}
+
+/* Staf Grid (untuk guru) */
+.staf-card {
+    text-align: center;
+}
+
+.staf-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #00ffff;
+    margin-bottom: 1rem;
+}
+
+/* Form Kontak */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00ffff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+button {
+    background: linear-gradient(45deg, #00ffff, #00ff00);
+    color: #000;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    class: hologram;
+    transition: all 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05) rotateY(5deg); /* 3D button */
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 5rem;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    nav .nav-container { flex-direction: column; }
+    nav ul { flex-direction: column; margin-top: 1rem; }
+    .hero h1 { font-size: 2.5rem; }
+    .rain-drop { width: 1px; height: 10px; }
+    .grid { grid-template-columns: 1fr; }
+}
